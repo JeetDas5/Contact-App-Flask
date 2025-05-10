@@ -32,8 +32,10 @@ def create_contact():
     return jsonify({"message": "User created successfully!"}), 201
 
 
-@app.route("/update-contact/<int:user_id>", methods=["PATCH"])
+@app.route("/update-contact/<int:user_id>", methods=["PATCH", "OPTIONS"])
 def update_contact(user_id):
+    if request.method == 'OPTIONS':
+        return '', 204  # Preflight request handling
     contact = Contact.query.get(user_id)
     if not contact:
         return jsonify({"error": "Contact not found"}), 404
@@ -47,8 +49,10 @@ def update_contact(user_id):
     return jsonify({"message": "Contact updated successfully!"}), 200
 
 
-@app.route("/delete-contact/<int:user_id>", methods=["DELETE"])
+@app.route("/delete-contact/<int:user_id>", methods=['DELETE', 'OPTIONS'])
 def delete_contact(user_id):
+    if request.method == 'OPTIONS':
+        return '', 204  # Preflight request handling
     contact = Contact.query.get(user_id)
     if not contact:
         return jsonify({"error": "Contact not found"}), 404

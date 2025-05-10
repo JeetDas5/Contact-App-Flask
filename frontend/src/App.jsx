@@ -11,7 +11,6 @@ function App() {
   const fetchContacts = async () => {
     const response = await fetch("https://contact-app-flask.onrender.com/contacts");
     const data = await response.json();
-    console.log(data);
     setContacts(data.contacts);
   };
 

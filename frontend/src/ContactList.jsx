@@ -19,7 +19,6 @@ const ContactList = ({ contacts, updateContact, updateCallback }) => {
       }
     } catch (error) {
       toast.error("Error deleting contact");
-      console.error("Error deleting contact:", error);
     }
   };
 
