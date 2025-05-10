@@ -30,8 +30,8 @@ const ContactForm = ({ existingContact = {}, updateCallback }) => {
     const url =
       "https://contact-app-flask.onrender.com" +
       (updatingContact
-        ? `update-contact/${existingContact.id}`
-        : "create-contact");
+        ? `/update-contact/${existingContact.id}`
+        : "/create-contact");
     const options = {
       method: updatingContact ? "PATCH" : "POST",
       headers: {
