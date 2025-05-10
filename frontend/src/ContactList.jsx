@@ -7,7 +7,7 @@ const ContactList = ({ contacts, updateContact, updateCallback }) => {
         method: "DELETE",
       };
       const response = await fetch(
-        `http://127.0.0.1:5000/delete-contact/${contactId}`,
+        `https://contact-app-flask.onrender.com/delete-contact/${contactId}`,
         options
       );
       if (response.status === 200) {
